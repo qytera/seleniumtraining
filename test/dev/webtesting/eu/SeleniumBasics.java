@@ -42,7 +42,6 @@ public class SeleniumBasics {
 
     @AfterClass
     public void closeDriver(){
-        driver.close();
         driver.quit();
     }
 
