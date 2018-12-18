@@ -3,14 +3,13 @@ package dev.webtesting.eu;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import static org.testng.Assert.assertTrue;
 
 /**
  * Created by Mario Hanneken @ Qytera on 04.08.2017.
+ * Bug Fix 18.12.2018
  * Basic class for testing the installation and setup
  */
 public class SeleniumBasics {
@@ -26,6 +25,10 @@ public class SeleniumBasics {
         System.setProperty("webdriver.chrome.driver", driverFolder + "chromedriver.exe");
     }
 
+    @BeforeMethod
+    public void nullDriver(){
+        driver = null;
+    }
     @Test
     public void checkFirefox(){
         driver = new FirefoxDriver();
@@ -40,9 +43,12 @@ public class SeleniumBasics {
         assertTrue(driver.getTitle().startsWith(title));
     }
 
-    @AfterClass
+    @AfterMethod
     public void closeDriver(){
         driver.quit();
     }
+
+    @AfterClass
+    public void deInitialize(){}
 
 }
