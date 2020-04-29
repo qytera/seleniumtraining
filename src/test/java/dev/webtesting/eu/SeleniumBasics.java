@@ -17,7 +17,7 @@ public class SeleniumBasics {
 
     private static final String url             = "http://selenium.webtesting.eu/";
     private static final String title           = "Selenium";
-    private static final String driverFolder    = "c:\\driver\\";
+    private static final String driverFolder    = "c:\\Tools\\driver\\";
 
     @BeforeClass
     public void setDriver(){
